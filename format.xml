@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ReceiptDefinitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="RcptConfig.xsd">
+
+  <ReceiptCopyRules>
+  	<ReceiptCopyRule name="TESTRECEIPT_SALE" document="TESTRECEIPT_SALE">
+		<Rule class="xyz.pos.TestAdditionalRcptCopyRule" type="TESTRECEIPT_SALE" />
+	</ReceiptCopyRule>
+  </ReceiptCopyRules>
+
+  <receipts>
+  	<receipt document="TESTRECEIPT_SALE" sectionref="TestReceiptSaleCopy" email="true" />
+  </receipts>
+
+  <sections>
+  <!-- - - - - - - - default customer receipt - - - - - - - -->
+	<section name="TestReceiptSaleCopy">
+		<sectionref>header</sectionref>
+		<sectionref>CUST_COPY_HEADER_DB1</sectionref>
+		<sectionref>items</sectionref>
+		<sectionref>totals</sectionref>
+		<sectionref>tax_code_summary</sectionref>
+		<sectionref>tenders</sectionref>
+		<sectionref>change</sectionref>
+		<sectionref>YouSavedMessage</sectionref>
+		<sectionref>TaxExemptInfo</sectionref>
+		<sectionref>SALE_DISCLAIMER_DB</sectionref>
+		<sectionref>CUST_COPY_FOOTER_DB</sectionref>
+		<sectionref>footer_cust_copy</sectionref>
+		<sectionref>system_mode</sectionref>
+		<sectionref>CustomerCopyLabel</sectionref>
+		<sectionref>page_break</sectionref>
+	</section>
+	
+	<section name="CUST_COPY_HEADER_DB1" dbRef="CUST_COPY_HEADER_DB1::DEFAULT::getTransactionDate">
+      <row />
+    </section>
+  </sections>
+
+</ReceiptDefinitions>
